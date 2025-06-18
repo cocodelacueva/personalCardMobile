@@ -66,10 +66,10 @@ class _PersonalCardScreenState extends State<PersonalCardScreen> {
                           style: const TextStyle(fontSize: 18, color: Colors.white), // Texto blanco
                           textAlign: TextAlign.center,
                         ),
-                        if (card.linkedin != null) ...[
+                        if (card.qr != null) ...[
                           const SizedBox(height: 20),
                           QrImageView(
-                            data: card.linkedin!,
+                            data: card.qr!,
                             version: QrVersions.auto,
                             size: 200.0,
                             backgroundColor: Colors.white, // Fondo del QR blanco

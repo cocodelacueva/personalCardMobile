@@ -73,6 +73,7 @@ class _PersonalCardScreenState extends State<PersonalCardScreen> {
                             version: QrVersions.auto,
                             size: 200.0,
                             backgroundColor: Colors.white, // Fondo del QR blanco
+                            errorCorrectionLevel: QrErrorCorrectLevel.M,
                           ),
                         ],
                         if (card.text != null) ...[

@@ -1,6 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.portinos.personal.card">
     <application
-        android:label="personal_card_mobile_app"
+        android:label="Personal Card"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

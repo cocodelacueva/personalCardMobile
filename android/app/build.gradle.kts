@@ -9,13 +9,11 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// --- INICIO: Nuevo bloque para cargar propiedades del keystore ---
 val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
-// --- FIN: Nuevo bloque para cargar propiedades del keystore ---
 
 android {
     namespace = "com.portinos.personal.card"
@@ -37,8 +35,8 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        versionCode = 3
+        versionName = "2.5.0"
     }
 
     signingConfigs {

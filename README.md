@@ -69,6 +69,8 @@ keyAlias=upload
 storeFile=/Users/coco./upload-keystore.jks > la dirección donde se guardo el archivo.
 ```
 
+Ajustar la version, ya que android no quiere que haya dos archivos con la misma version. Esto se agrega en el archivo buid.gradle.kts
+
 Luego se puede construir la app:
 
 ```bash

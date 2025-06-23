@@ -25,19 +25,21 @@ class _PersonalCardScreenState extends State<PersonalCardScreen> {
     setState(() {
       personalCard = Future.value(loadedCard); // Actualiza el Future con los datos cargados
     });
-    print('Datos cargados: ${loadedCard.name}, ${loadedCard.phone}, ${loadedCard.email}');
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.orange,
+      color: Colors.white,
       child: Scaffold(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: const Text('Portinos.com'),
+          title: const Text(
+            'White Suit Studio',
+            style: TextStyle(color: Colors.white),
+          ),
           centerTitle: true,
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.black,
           actions: [
             IconButton(
               icon: const Icon(Icons.settings),
@@ -68,7 +70,7 @@ class _PersonalCardScreenState extends State<PersonalCardScreen> {
                 width: double.infinity,
                 margin: const EdgeInsets.all(16.0),
                 child: Card(
-                  color: Colors.black,
+                  color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -77,17 +79,17 @@ class _PersonalCardScreenState extends State<PersonalCardScreen> {
                       children: [
                         Text(
                           card.name,
-                          style: const TextStyle(fontSize: 36, color: Colors.white),
+                          style: const TextStyle(fontSize: 36, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           card.phone,
-                          style: const TextStyle(fontSize: 24, color: Colors.white),
+                          style: const TextStyle(fontSize: 24, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           card.email,
-                          style: const TextStyle(fontSize: 18, color: Colors.white),
+                          style: const TextStyle(fontSize: 18, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),if (card.qr != null) ...[
                           const SizedBox(height: 20),
@@ -103,7 +105,7 @@ class _PersonalCardScreenState extends State<PersonalCardScreen> {
                           const SizedBox(height: 20),
                           Text(
                             card.text!,
-                            style: const TextStyle(fontSize: 16, color: Colors.white), // Texto blanco
+                            style: const TextStyle(fontSize: 16, color: Colors.black), // Texto blanco
                             textAlign: TextAlign.center,
                           ),
                         ],

@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Personal Card | Portinos.com',
+      title: 'Personal Card | Whitesuit.studio',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const PersonalCardScreen(),
     );

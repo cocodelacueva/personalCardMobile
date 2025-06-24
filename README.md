@@ -11,7 +11,6 @@ La arme para aprender a usar flutter. Es una aplicación que muestra tu informac
 
 ## Android
 
-
 En una aplicación Flutter, los íconos y la información específica para Android se configuran en el archivo AndroidManifest.xml y en el directorio res. Aquí te explico cómo configurarlos:
 
 1. Configurar el ícono de la aplicación
@@ -76,3 +75,72 @@ Luego se puede construir la app:
 ```bash
 flutter build appbundle --release
 ```
+
+## IOS
+
+Para subir la app a app Store y utilizarla en iphone es necesario una mac con Xcode instalado, hay que seguir estos pasos:
+
+1. Asegúrate de tener Mac, Xcode y una cuenta de desarrollador de Apple.
+```bash
+xcode-select --install
+```
+2. Abre ios/Runner.xcworkspace en Xcode.
+El proyecto incluye una carpeta IOS, abrir la carpeta en la terminal y ejecutar:
+```bash
+open Runner.xcworkspace
+```
+3. Configura el "Signing & Capabilities" (selecciona tu equipo y verifica el Bundle Identifier).
+4. Si tu app usa funcionalidades sensibles, añade las descripciones de privacidad en Info.plist.
+5. Construye la IPA con flutter build ipa --release. **Conviene hacerlo desde xcode Product > Archive
+6. Sube la IPA a App Store Connect usando Transporter o la función de "Distribute App" en Xcode.
+7. Utiliza TestFlight para las pruebas beta.
+
+### Modificar el Icono de la Aplicación
+
+Para cambiar el icono que se muestra en la pantalla de inicio de iOS:
+En Xcode, en el "Project Navigator" (panel izquierdo), expande la carpeta Runner.
+
+Busca y selecciona el archivo Assets.xcassets.
+
+Dentro de Assets.xcassets, encontrarás un conjunto de imágenes llamado AppIcon. Haz clic en él.
+
+Verás una cuadrícula de espacios para iconos de diferentes tamaños (2x, 3x, para iPhone, iPad, App Store, etc.). Cada espacio está etiquetado con las dimensiones requeridas.
+
+Arrastra y suelta tus archivos de imagen PNG correspondientes a cada tamaño en el espacio adecuado. Asegúrate de que las dimensiones de tus imágenes coincidan con las que Xcode solicita (por ejemplo, 180x180 px para "iPhone App iOS 8-10 60pt @3x").
+
+Asegúrate de reemplazar todos los iconos necesarios para cubrir los diferentes dispositivos y densidades. Puedes usar herramientas online o plugins de Flutter como flutter_launcher_icons para generar automáticamente estos tamaños desde una sola imagen de alta resolución.
+
+Cómo usar flutter_launcher_icons para generar los iconos:
+Este paquete simplifica el proceso de generar todos los tamaños de icono necesarios para iOS y Android a partir de una única imagen.
+
+Añade la dependencia:
+Abre tu archivo pubspec.yaml (en la raíz de tu proyecto Flutter) y añade flutter_launcher_icons en la sección dev_dependencies:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.13.1" # Asegúrate de usar la versión más reciente
+
+Guarda el archivo y ejecuta flutter pub get en la terminal.
+
+Configura el icono en pubspec.yaml:
+Añade una nueva sección flutter_launcher_icons en el mismo archivo pubspec.yaml, especificando la ruta a tu imagen original del icono y las plataformas para las que quieres generarlos. Se recomienda una imagen cuadrada de al menos 1024x1024 píxeles.
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/launcher_icon.png" # Cambia esta ruta a tu imagen
+  # adaptive_icon_background: "#ffffff" # Opcional: para iconos adaptativos de Android (fondo)
+  # adaptive_icon_foreground: "assets/icon/foreground.png" # Opcional: para iconos adaptativos de Android (primer plano)
+
+android: true: Genera iconos para Android.
+
+ios: true: Genera iconos para iOS.
+
+image_path: La ruta a tu imagen original (PNG preferentemente) dentro de tu proyecto Flutter. Si aún no tienes una carpeta assets/icon, créala y coloca tu imagen allí.
+
+Ejecuta el comando para generar los iconos:
+En tu terminal, desde la raíz del proyecto Flutter, ejecuta:
+
+flutter pub run flutter_launcher_icons
